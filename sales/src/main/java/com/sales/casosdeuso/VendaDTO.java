@@ -1,4 +1,4 @@
-import main.java.com.sales.casosdeuso;
+package main.java.com.sales.casosdeuso;
 
 public class VendaDTO {
 

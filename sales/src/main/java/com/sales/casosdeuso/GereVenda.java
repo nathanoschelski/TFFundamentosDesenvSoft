@@ -1,5 +1,5 @@
 
-import main.java.com.sales.casosdeuso;
+package main.java.com.sales.casosdeuso;
 
 public class GereVenda {
 
@@ -10,6 +10,8 @@ public class GereVenda {
     }
 
     public double calcularSalesPrice(Produto produto, double margem){
+
+
 
     }
 
