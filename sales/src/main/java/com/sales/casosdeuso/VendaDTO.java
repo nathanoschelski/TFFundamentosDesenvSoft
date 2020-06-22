@@ -40,10 +40,5 @@ public class VendaDTO {
         return "VendaDTO [produto=" + produto.getNome() + ", margem=" + margem + ", salesPrice=" + salesPrice + "]";
     }
 
-    
-
-
-    
-
 
 }
