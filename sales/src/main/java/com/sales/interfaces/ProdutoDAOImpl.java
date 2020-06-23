@@ -1,3 +1,5 @@
+package main.java.com.sales.interfaces;
+
 import main.java.com.sales.entidades.Produto;
 import main.java.com.sales.casosdeuso.*;
 import java.util.List;
