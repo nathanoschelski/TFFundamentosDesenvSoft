@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:fran" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c70bd010-c517-499e-981c-2544fa50ae3c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/Fachada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/Fachada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/GereVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/GereVenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/ProdutoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/ProdutoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/VendaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/VendaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Vendedor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,12 +95,35 @@
       <option name="presentableId" value="Default" />
       <updated>1592922792254</updated>
       <workItem from="1592922797196" duration="2428000" />
-      <workItem from="1592934679353" duration="1439000" />
+      <workItem from="1592934679353" duration="2459000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="fran" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592936128567">
@@ -100,35 +134,39 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="376" y="132" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1440.900@0.0.1440.900" timestamp="1592923059596" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1592936051417">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1592937014826">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657601" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051417" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1592936051395">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592937014826" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936142547" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1592937014821">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657595" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051395" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1592936051392">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592937014821" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936142533" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1592937014818">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657593" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051392" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1592936051402">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592937014818" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936142530" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1592937014824">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657598" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051402" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592937014824" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936142536" />
     <state x="425" y="159" key="RollbackChangesDialog" timestamp="1592923662898">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="425" y="159" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1592923662898" />
-    <state x="208" y="31" key="SettingsEditor" timestamp="1592935693226">
+    <state x="208" y="31" key="SettingsEditor" timestamp="1592937415086">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="208" y="31" key="SettingsEditor/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935693226" />
+    <state x="208" y="31" key="SettingsEditor/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592937415086" />
     <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592924691285" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1592937084277">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592937084277" />
     <state x="522" y="235" key="chooseDestDirectoryDialog" timestamp="1592935707150">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
