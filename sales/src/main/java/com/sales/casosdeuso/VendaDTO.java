@@ -2,6 +2,7 @@ package main.java.com.sales.casosdeuso;
 
 import java.util.List;
 import main.java.com.sales.*;
+import main.java.com.sales.entidades.*;
 
 public class VendaDTO {
 
