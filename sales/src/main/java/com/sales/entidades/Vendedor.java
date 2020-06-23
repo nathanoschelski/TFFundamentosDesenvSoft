@@ -1,8 +1,8 @@
-
-package main.java.com.sales.entidades;
+package com.sales.entidades;
 
 import java.util.List;
-import main.java.com.sales.casosdeuso.*;
+
+import com.sales.casosdeuso.VendaDTO;
 
 public class Vendedor {
 

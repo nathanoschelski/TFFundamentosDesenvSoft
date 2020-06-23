@@ -1,18 +1,16 @@
-package main.java.com.sales.casosdeuso;
+package com.sales.casosdeuso;
 
-import main.java.com.sales.casosdeuso.*;
-import main.java.com.sales.entidades.*;
-import main.java.com.sales.interfaces.*;
+import com.sales.entidades.Produto;
+import com.sales.interfaces.ProdutoDAOException;
+import com.sales.interfaces.ProdutoDAOImpl;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 
 public class Fachada {
 
     private ProdutoDAO dao;
     
-    public Fachada() throws ProdutoDAOException{
+    public Fachada() throws ProdutoDAOException {
        try {
             dao = ProdutoDAOImpl.getInstance();
         } catch (ProdutoDAOException e) {

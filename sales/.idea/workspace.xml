@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c70bd010-c517-499e-981c-2544fa50ae3c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/Fachada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/Fachada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/GereVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/GereVenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/ProdutoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/ProdutoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/VendaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/casosdeuso/VendaDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/entidades/Vendedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sales/interfaces/ProdutoDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1dizdvy26R6VgwJHIfL1IKgXbiV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sales.interfaces.App" />
+      <module name="sales" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sales.interfaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c70bd010-c517-499e-981c-2544fa50ae3c" name="Default Changelist" comment="" />
+      <created>1592922792254</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592922792254</updated>
+      <workItem from="1592922797196" duration="2428000" />
+      <workItem from="1592934679353" duration="1439000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592936128567">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592936128567" />
+    <state x="376" y="132" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1592923059596">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="376" y="132" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1440.900@0.0.1440.900" timestamp="1592923059596" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1592936051417">
+      <screen x="0" y="23" width="1440" height="820" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657601" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051417" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1592936051395">
+      <screen x="0" y="23" width="1440" height="820" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657595" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051395" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1592936051392">
+      <screen x="0" y="23" width="1440" height="820" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657593" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051392" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1592936051402">
+      <screen x="0" y="23" width="1440" height="820" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935657598" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.820/-235.-1080.1920.1080@0.23.1440.820" timestamp="1592936051402" />
+    <state x="425" y="159" key="RollbackChangesDialog" timestamp="1592923662898">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="425" y="159" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1592923662898" />
+    <state x="208" y="31" key="SettingsEditor" timestamp="1592935693226">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="208" y="31" key="SettingsEditor/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935693226" />
+    <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592924691285" />
+    <state x="522" y="235" key="chooseDestDirectoryDialog" timestamp="1592935707150">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="522" y="235" key="chooseDestDirectoryDialog/0.0.1440.900/-235.-1080.1920.1080@0.0.1440.900" timestamp="1592935707150" />
+    <state x="522" y="235" key="chooseDestDirectoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1592923039823" />
+  </component>
+</project>
