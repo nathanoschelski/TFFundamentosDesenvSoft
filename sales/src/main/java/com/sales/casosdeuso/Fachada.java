@@ -1,5 +1,8 @@
-package main.java.com.sales.casosdeuso;
-import main.java.*;
+import main.java.com.sales.casosdeuso.*;
+import main.java.com.sales.entidades.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Fachada {
 

@@ -1,5 +1,7 @@
 
 package main.java.com.sales.entidades;
+import java.util.List;
+import main.java.sales.*;
 
 import java.util.List;
 
