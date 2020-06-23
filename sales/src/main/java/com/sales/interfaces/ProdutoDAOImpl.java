@@ -1,7 +1,11 @@
 
-import main.java.com.sales.entidades.*;
+
+package main.java.com.sales.interfaces;
+
 import main.java.com.sales.casosdeuso.*;
+import main.java.com.sales.entidades.*;
 import main.java.com.sales.interfaces.*;
+
 import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
