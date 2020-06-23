@@ -1,6 +1,5 @@
-import main.java.com.sales;
 import main.java.com.sales.entidades.Produto;
-
+import main.java.com.sales.casosdeuso.*;
 import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;

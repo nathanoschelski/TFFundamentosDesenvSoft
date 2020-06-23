@@ -11,7 +11,8 @@ public class App {
 
         fachada = new Fachada();
 
-        //cadastra produtos
+
+        //cadastra produtos ee
         Produto prod = fachada.criarProduto(1350, 2000, "Pow");
 
 //        Produto tv = fachada.criarProduto('1350'    , '1500', 'TV LCD');
