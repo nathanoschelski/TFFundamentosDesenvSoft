@@ -1,7 +1,4 @@
-import main.java.com.sales;
-import main.java.com.sales.casosdeuso.Fachada;
-import main.java.*;
-
+import main.java.com.sales.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;

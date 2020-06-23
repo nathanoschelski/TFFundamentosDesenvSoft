@@ -1,5 +1,8 @@
 package main.java.com.sales.casosdeuso;
 
+import java.util.List;
+import main.java.com.sales.*;
+
 public class VendaDTO {
 
     private Produto produto;
