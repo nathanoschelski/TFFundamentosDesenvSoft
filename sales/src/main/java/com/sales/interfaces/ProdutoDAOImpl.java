@@ -1,6 +1,6 @@
 
 
-package main.java.com.sales.interfaces;
+package main.java.com.sales.interfaces; 
 
 import main.java.com.sales.casosdeuso.*;
 import main.java.com.sales.entidades.*;
@@ -13,13 +13,13 @@ import java.util.ArrayList;
 public class ProdutoDAOImpl implements ProdutoDAO {
     private static ProdutoDAOImpl ref;
     
-    public static ProdutoDAOImpl getInstance() {
+    public static ProdutoDAOImpl getInstance() throws ProdutoDAOException{
         if (ref == null)
             ref = new ProdutoDAOImpl();
         return ref;
     }
     
-    private ProdutoDAOImpl() throws ProdutoDAOException {
+    private ProdutoDAOImpl() throws ProdutoDAOException{
         try {
              Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
         } catch (ClassNotFoundException ex) {
@@ -36,7 +36,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
                 */
     }
     
-    private static void createDB() {
+    private static void createDB() throws ProdutoDAOException {
        // System.out.println("Vem aqui");
         try {
             Connection con = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
@@ -64,7 +64,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
     }
     
     @Override
-    public boolean adicionar(Produto p) {
+    public boolean criarProduto(Produto p) throws ProdutoDAOException {
         try {
             Connection con = getConnection();
             
@@ -87,7 +87,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
     }
     
     @Override
-    public List<Produto> getTodos() throws ProdutoDAOException {
+    public List<Produto> getTodos() throws ProdutoDAOException{
         try {
             Connection con = getConnection();
             Statement stmt = con.createStatement();
@@ -97,7 +97,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
                 String nome = resultado.getString("Nome");
                 double costPrice = resultado.getDouble("CostPrice");
                 double transferPrice = resultado.getDouble("TransferPrice");
-                Produto p = new Produto(nome, costPrice, transferPrice);
+                Produto p = new Produto(costPrice, transferPrice, nome);
                 lista.add(p);
             }
             return lista;

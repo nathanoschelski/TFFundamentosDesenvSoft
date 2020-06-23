@@ -1,3 +1,5 @@
+package main.java.com.sales.casosdeuso;
+
 import main.java.com.sales.casosdeuso.*;
 import main.java.com.sales.entidades.*;
 import main.java.com.sales.interfaces.*;
@@ -10,26 +12,26 @@ public class Fachada {
 
     private ProdutoDAO dao;
     
-    public Fachada() {
-        try {
+    public Fachada() throws ProdutoDAOException{
+       try {
             dao = ProdutoDAOImpl.getInstance();
         } catch (ProdutoDAOException e) {
-            throw new Exception("Falha de criação da fachada!", e);
+            throw new ProdutoDAOException("Falha de criação da fachada!", e);
         }
     }
 
-    public Produto criarProduto(double costPrice, double transferPrice, String nome){
+    public Produto criarProduto(double costPrice, double transferPrice, String nome) throws ProdutoDAOException{
 
         Produto p = new Produto(costPrice, transferPrice, nome);
         System.out.println(p.toString());
         try {
-            boolean ok = dao.adicionar(p);
+            boolean ok = dao.criarProduto(p);
             if(ok) {
                 return p;
             }
             return null;
-        } catch (ProdutoDAOException e) {
-            throw new Exception("Falha ao adicionar produto!", e);
+       } catch (ProdutoDAOException e) {
+            throw new ProdutoDAOException("Falha ao adicionar produto!", e);
         }
     }
 
@@ -37,7 +39,7 @@ public class Fachada {
         try {
             return dao.getTodos();
         } catch (ProdutoDAOException e) {
-            throw new IrpfException("Falha ao buscar produtos!", e);
+            throw new ProdutoDAOException("Falha ao buscar produtos!", e);
         }
     }
 }
