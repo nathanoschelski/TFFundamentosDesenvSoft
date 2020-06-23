@@ -1,6 +1,6 @@
 import main.java.com.sales.casosdeuso.*;
 import main.java.com.sales.entidades.*;
-import main.java.com.sales.ui.*;
+import main.java.com.sales.interfaces.*;
 
 import java.util.Arrays;
 import java.util.List;
