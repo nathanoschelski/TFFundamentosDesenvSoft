@@ -1,10 +1,10 @@
-/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/persistencia/ProdutoDAOException.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/Fachada.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/entidades/Produto.java
-/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/apresentacao/App.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/VendaDTO.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/GereVenda.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/entidades/Vendedor.java
+/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/ProdutoDAOException.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/App.java
-/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/persistencia/ProdutoDAOImpl.java
+/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/App.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/ProdutoDAO.java
+/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/ProdutoDAOImpl.java

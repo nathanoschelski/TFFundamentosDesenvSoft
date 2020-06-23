@@ -1,6 +1,5 @@
 import main.java.com.sales.casosdeuso.*;
 import main.java.com.sales.entidades.*;
-
 import main.java.com.sales.interfaces.*;
 
 import java.util.Arrays;
