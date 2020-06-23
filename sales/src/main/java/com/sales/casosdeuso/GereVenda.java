@@ -1,4 +1,6 @@
 
+package main.java.com.sales.casosdeuso;
+
 import main.java.com.sales.casosdeuso.*;
 import main.java.com.sales.entidades.*;
 import java.util.List;
@@ -10,13 +12,4 @@ public class GereVenda {
     public GereVenda(VendaDTO venda) {
         this.venda = venda;
     }
-
-    public double calcularSalesPrice(Produto produto, double margem){
-
-
-
-    }
-
-    
-
 }
