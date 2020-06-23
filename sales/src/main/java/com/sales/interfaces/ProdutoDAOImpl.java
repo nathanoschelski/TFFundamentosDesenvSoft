@@ -1,12 +1,13 @@
 package main.java.com.sales.interfaces;
 
-import main.java.com.sales.entidades.Produto;
+import main.java.com.sales.entidades.*;
 import main.java.com.sales.casosdeuso.*;
+import main.java.com.sales.interfaces.*;
 import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ProdutoDAOImpl implements ProdutoDAO{
+public class ProdutoDAOImpl implements ProdutoDAO {
     private static ProdutoDAOImpl ref;
     
     public static ProdutoDAOImpl getInstance() {
