@@ -1,4 +1,4 @@
-package main.java.com.sales.entidades;
+package com.sales.entidades;
 
 public class Produto {
 

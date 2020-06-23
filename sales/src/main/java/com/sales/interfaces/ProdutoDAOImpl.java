@@ -1,10 +1,7 @@
+package com.sales.interfaces;
 
-
-package main.java.com.sales.interfaces; 
-
-import main.java.com.sales.casosdeuso.*;
-import main.java.com.sales.entidades.*;
-import main.java.com.sales.interfaces.*;
+import com.sales.casosdeuso.ProdutoDAO;
+import com.sales.entidades.Produto;
 
 import java.util.List;
 import java.sql.*;

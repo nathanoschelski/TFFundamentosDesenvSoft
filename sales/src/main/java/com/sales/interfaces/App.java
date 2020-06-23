@@ -1,8 +1,7 @@
-package main.java.com.sales.interfaces;
+package com.sales.interfaces;
 
-import main.java.com.sales.casosdeuso.*;
-import main.java.com.sales.entidades.*;
-import main.java.com.sales.interfaces.*;
+import com.sales.casosdeuso.Fachada;
+import com.sales.entidades.Produto;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public class App {
 
     public static void main(String args[]) throws ProdutoDAOException {
-        Fachada fachada; 
+        Fachada fachada;
         List<Produto> produtos = new ArrayList<Produto>();
 
         fachada = new Fachada();
