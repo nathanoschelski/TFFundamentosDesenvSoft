@@ -1,5 +1,5 @@
 
-package main.java.com.sales.entidades;
+package entidades;
 
 import java.util.List;
 import main.java.com.sales.casosdeuso.*;

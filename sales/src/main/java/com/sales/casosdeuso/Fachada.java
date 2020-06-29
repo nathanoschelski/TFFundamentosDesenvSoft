@@ -1,8 +1,7 @@
-package main.java.com.sales.casosdeuso;
+package casosdeuso;
 
-import main.java.com.sales.casosdeuso.*;
-import main.java.com.sales.entidades.*;
-import main.java.com.sales.interfaces.*;
+import entidades.*;
+import interfaces.*;
 
 import java.util.Arrays;
 import java.util.List;
