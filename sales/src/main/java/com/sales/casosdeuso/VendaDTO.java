@@ -1,4 +1,4 @@
-package casosdeuso;
+package main.java.com.sales.casosdeuso;;
 
 import java.util.List;
 import entidades.*;
