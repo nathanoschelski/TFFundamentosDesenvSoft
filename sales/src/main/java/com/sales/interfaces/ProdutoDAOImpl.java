@@ -1,6 +1,6 @@
 
 
-package interfaces; 
+
 
 import casosdeuso.*;
 import entidades.*;
