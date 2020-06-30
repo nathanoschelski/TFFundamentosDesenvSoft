@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.sales.casosdeuso.VendaDTO;
-import com.sales.entidades.Produto;
+import com.sales.casosdeuso.*;
+import com.sales.entidades.*;
 
 import java.util.List;
 import java.sql.*;
