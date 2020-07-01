@@ -14,11 +14,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+<<<<<<< HEAD
+=======
+		<junit.version>4.12</junit.version>
+>>>>>>> 7efa8ec7b80232b5166ef7a1a679a3d5d7e98abf
 	</properties>
 
 	<dependencies>
 		<!-- Dependencias do JUnit -->
 		<dependency>
+<<<<<<< HEAD
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.3.1</version>
@@ -30,6 +35,25 @@
 			<version>5.1.0</version>
 			<scope>test</scope>
 		</dependency>
+=======
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-engine</artifactId>-->
+<!--			<version>5.3.1</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-params</artifactId>-->
+<!--			<version>5.1.0</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+>>>>>>> 7efa8ec7b80232b5166ef7a1a679a3d5d7e98abf
 		<!-- Dependencias do mockito -->
 		<dependency>
 			<groupId>org.mockito</groupId>
