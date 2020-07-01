@@ -1,8 +1,5 @@
 
-package main.java.com.sales.interfaces;
 
-import casosdeuso.*;
-import entidades.*;
 
 
     public class ProdutoDAOException extends Exception {
