@@ -9,7 +9,7 @@ public class CalculoLucroFactory {
     
         if(Tipo == "Empresa"){
             calculo = new CalculoLucroEmpresa();
-        }a
+        }
         else {
             calculo = new CalculoLucroVendedor();
         }

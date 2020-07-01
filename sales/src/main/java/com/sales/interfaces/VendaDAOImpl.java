@@ -36,11 +36,11 @@ public class VendaDAOImpl implements VendaDAO {
             Connection con = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
             Statement sta = con.createStatement();
             
-            String sql = "CREATE TABLE Venda ("
+            String sql = "CREATE TABLE Venda (" 
                     + "Id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
-                    + “Produto VARCHAR(100) NOT NULL,"
-                    + “Margem DOUBLE,"
-                    + “SalesPrice DOUBLE"
+                    + "Produto VARCHAR(100) NOT NULL,"
+                    + "Margem DOUBLE," 
+                    +"SalesPrice DOUBLE"
                     + ")";
             
             sta.executeUpdate(sql);
