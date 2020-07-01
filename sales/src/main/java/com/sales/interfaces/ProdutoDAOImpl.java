@@ -1,6 +1,6 @@
 
 
-
+package main.java.com.sales.interfaces;
 
 import casosdeuso.*;
 import entidades.*;

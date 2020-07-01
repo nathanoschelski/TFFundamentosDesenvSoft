@@ -1,8 +1,6 @@
 
-package casosdeuso;
+package main.java.com.sales.casosdeuso;
 
-import entidades.*;
-import interfaces.*;
 import java.util.List;
 
 public interface ProdutoDAO {

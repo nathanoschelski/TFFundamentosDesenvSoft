@@ -1,7 +1,6 @@
-package main.java.com.sales.casosdeuso;;
+package main.java.com.sales.casosdeuso;
 
 import java.util.List;
-import entidades.*;
 
 public class VendaDTO {
 
