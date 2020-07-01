@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sales</a> &gt; <a href="index.source.html" class="el_package">com.sales.interfaces</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package com.sales.interfaces;
+import com.sales.entidades.*;
+import com.sales.casosdeuso.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+<span class="nc" id="L8">public class App {</span>
+
+
+   // public static void main(String args[]) {
+    public static void main(String args[]) throws ProdutoDAOException {
+        Fachada fachada; 
+<span class="nc" id="L14">        List&lt;Produto&gt; produtos = new ArrayList&lt;Produto&gt;();</span>
+
+<span class="nc" id="L16">        fachada = new Fachada();</span>
+
+        //cadastra produtos
+
+<span class="nc" id="L20">        Produto tv = fachada.criarProduto(1350.99, 1500, &quot;TV LCD&quot;);</span>
+<span class="nc" id="L21">        Produto geladeira = fachada.criarProduto(800, 850, &quot;Geladeira&quot;); </span>
+<span class="nc" id="L22">        Produto sofa = fachada.criarProduto(1999.00, 2300.00, &quot;Sofa&quot;);</span>
+        
+        //lista produtos cadastrados
+        try {
+<span class="nc" id="L26">            produtos = fachada.buscarProdutos();</span>
+<span class="nc" id="L27">        } catch (Exception e) {</span>
+<span class="nc" id="L28">            throw new ProdutoDAOException(&quot;Falha ao buscar produtos!&quot;, e);</span>
+            //TODO: handle exception
+<span class="nc" id="L30">        }</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        for (Produto p : produtos){</span>
+<span class="nc" id="L32">            System.out.println(p.toString());</span>
+<span class="nc" id="L33">        }  </span>
+<span class="nc" id="L34">    }   </span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

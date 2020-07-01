@@ -1,5 +1,8 @@
 package com.sales.interfaces;
 
+import com.sales.entidades.*;
+import com.sales.casosdeuso.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -63,9 +66,11 @@ public class VendaDAOImpl implements VendaDAO {
                     "INSERT INTO Venda (IdProduto, Margem, SalesPrice) VALUES (?,?,?)" //                             1        2         3            4          5             6
                     );
             Produto p = v.getProduto();
+            double salesPrice = p.getTransferPrice() * v.getMargem();
+
             stmt.setString(1, p.getNome());
             stmt.setDouble(2, v.getMargem());
-            stmt.setDouble(3, p.getSalesPrice());
+            stmt.setDouble(3, salesPrice);
             System.out.println(stmt.getWarnings());
             
             int ret = stmt.executeUpdate();

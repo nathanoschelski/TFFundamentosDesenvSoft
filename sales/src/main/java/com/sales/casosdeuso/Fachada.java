@@ -1,5 +1,6 @@
 package com.sales.casosdeuso;
-
+import com.sales.entidades.*;
+import com.sales.interfaces.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;

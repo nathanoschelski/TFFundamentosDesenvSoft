@@ -1,3 +1,7 @@
+
+package com.sales.entidades;
+import com.sales.casosdeuso.*;
+import com.sales.interfaces.*;
 public class Produto {
 
     private double costPrice;

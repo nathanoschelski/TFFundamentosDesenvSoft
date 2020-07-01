@@ -1,6 +1,7 @@
 
 package com.sales.entidades;
-
+import com.sales.casosdeuso.*;
+import com.sales.interfaces.*;
 import java.util.List;
 
 public class Vendedor {

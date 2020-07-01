@@ -1,5 +1,6 @@
-
-
+package com.sales.interfaces;
+import com.sales.entidades.*;
+import com.sales.casosdeuso.*;
 
 
     public class ProdutoDAOException extends Exception {

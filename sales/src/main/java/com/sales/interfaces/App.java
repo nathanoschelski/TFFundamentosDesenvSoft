@@ -1,8 +1,4 @@
-package main.java.com.sales.interfaces;
-
-import casosdeuso.*;
-import entidades.*;
-import interfaces.*;
+package com.sales.interfaces;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +7,7 @@ import java.util.ArrayList;
 public class App {
 
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
 //    public static void main(String args[]) throws ProdutoDAOException {
         Fachada fachada; 
         List<Produto> produtos = new ArrayList<Produto>();
@@ -25,12 +21,12 @@ public class App {
         Produto sofa = fachada.criarProduto(1999.00, 2300.00, "Sofa");
         
         //lista produtos cadastrados
-        try {
+       // try {
             produtos = fachada.buscarProdutos();
-        } catch (Exception e) {
-            throw new ProdutoDAOException("Falha ao buscar produtos!", e);
+       // } catch (Exception e) {
+        //    throw new ProdutoDAOException("Falha ao buscar produtos!", e);
             //TODO: handle exception
-        }
+       // }
         for (Produto p : produtos){
             System.out.println(p.toString());
         }  
