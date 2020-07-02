@@ -17,92 +17,121 @@ public class ProdutoDAOImpl implements ProdutoDAO {
     
 <span class="nc" id="L18">    private ProdutoDAOImpl() {</span>
     //throws ProdutoDAOException{
+       
+        
         try {
-<span class="nc" id="L21">             Class.forName(&quot;org.apache.derby.jdbc.EmbeddedDriver&quot;);</span>
+<span class="nc" id="L23">             Class.forName(&quot;org.apache.derby.jdbc.EmbeddedDriver&quot;);</span>
 
             } 
-<span class="nc" id="L24">       catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L25">        System.out.println(&quot;Problemas para criar o banco: &quot;+ex.getMessage());</span>
+<span class="nc" id="L26">       catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L27">        System.out.println(&quot;Problemas para criar o banco: &quot;+ex.getMessage());</span>
         //    throw new ProdutoDAOException(&quot;JdbcOdbDriver not found!!&quot;);
-<span class="nc" id="L27">        }</span>
+<span class="nc" id="L29">        }</span>
         
-        /*
+       /*
         try {
             createDB();
         } catch (Exception ex) {
             System.out.println(&quot;Problemas para criar o banco: &quot;+ex.getMessage());
             System.exit(0);
         }
-                */
-<span class="nc" id="L37">    }</span>
+        */
+        
+                
+<span class="nc" id="L41">    }</span>
     
     private static void createDB() throws ProdutoDAOException {
        // System.out.println(&quot;Vem aqui&quot;);
         try {
-<span class="nc" id="L42">            Connection con = DriverManager.getConnection(&quot;jdbc:derby:derbyDB;create=true&quot;);</span>
-<span class="nc" id="L43">            Statement sta = con.createStatement();</span>
+<span class="nc" id="L46">            Connection con = DriverManager.getConnection(&quot;jdbc:derby:derbyDB;create=true&quot;);</span>
+<span class="nc" id="L47">            Statement sta = con.createStatement();</span>
             
-<span class="nc" id="L45">            String sql = &quot;CREATE TABLE Produto (&quot;</span>
+<span class="nc" id="L49">            String sql = &quot;CREATE TABLE Produto (&quot;</span>
                     + &quot;Id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),&quot;
-                    + &quot;Nome VARCHAR(100) NOT NULL,&quot;
+                    + &quot;Nome VARCHAR(100) NOT NULL UNIQUE,&quot;
                     + &quot;CostPrice DOUBLE,&quot;
                     + &quot;TransferPrice DOUBLE&quot;
                     + &quot;)&quot;;
             
-<span class="nc" id="L52">            sta.executeUpdate(sql);</span>
-<span class="nc" id="L53">            sta.close();</span>
-<span class="nc" id="L54">            con.close();</span>
-<span class="nc" id="L55">        } catch (SQLException ex) {</span>
-<span class="nc" id="L56">            throw new ProdutoDAOException(ex.getMessage());</span>
-<span class="nc" id="L57">        }</span>
-<span class="nc" id="L58">    }</span>
+<span class="nc" id="L56">            sta.executeUpdate(sql);</span>
+<span class="nc" id="L57">            sta.close();</span>
+<span class="nc" id="L58">            con.close();</span>
+<span class="nc" id="L59">        } catch (SQLException ex) {</span>
+<span class="nc" id="L60">            throw new ProdutoDAOException(ex.getMessage());</span>
+<span class="nc" id="L61">        }</span>
+<span class="nc" id="L62">    }</span>
         
     
     private static Connection getConnection() throws SQLException {
         //derbyDB sera o nome do diretorio criado localmente
-<span class="nc" id="L63">        return DriverManager.getConnection(&quot;jdbc:derby:derbyDB&quot;);</span>
+<span class="nc" id="L67">        return DriverManager.getConnection(&quot;jdbc:derby:derbyDB&quot;);</span>
     }
     
     @Override
     public boolean criarProduto(Produto p) throws ProdutoDAOException {
         try {
-<span class="nc" id="L69">            Connection con = getConnection();</span>
+<span class="nc" id="L73">            Connection con = getConnection();</span>
             
-<span class="nc" id="L71">            PreparedStatement stmt = con.prepareStatement(</span>
+<span class="nc" id="L75">            PreparedStatement stmt = con.prepareStatement(</span>
                     &quot;INSERT INTO Produto (Nome, CostPrice, TransferPrice) VALUES (?,?,?)&quot; //                             1        2         3            4          5             6
                     );
-<span class="nc" id="L74">            stmt.setString(1, p.getNome());</span>
-<span class="nc" id="L75">            stmt.setDouble(2, p.getCostPrice());</span>
-<span class="nc" id="L76">            stmt.setDouble(3, p.getTransferPrice());</span>
-<span class="nc" id="L77">            System.out.println(stmt.getWarnings());</span>
+<span class="nc" id="L78">            stmt.setString(1, p.getNome());</span>
+<span class="nc" id="L79">            stmt.setDouble(2, p.getCostPrice());</span>
+<span class="nc" id="L80">            stmt.setDouble(3, p.getTransferPrice());</span>
+<span class="nc" id="L81">            System.out.println(stmt.getWarnings());</span>
             
-<span class="nc" id="L79">            int ret = stmt.executeUpdate();</span>
-<span class="nc" id="L80">            System.out.println(ret);</span>
-<span class="nc" id="L81">            con.close();</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">            return (ret&gt;0);</span>
-<span class="nc" id="L83">        } catch (SQLException ex) {</span>
-<span class="nc" id="L84">            System.out.println(&quot;falhando&quot;);</span>
-<span class="nc" id="L85">            throw new ProdutoDAOException(&quot;Falha ao adicionar.&quot;, ex);</span>
+<span class="nc" id="L83">            int ret = stmt.executeUpdate();</span>
+<span class="nc" id="L84">            System.out.println(ret);</span>
+<span class="nc" id="L85">            con.close();</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            return (ret&gt;0);</span>
+<span class="nc" id="L87">        } catch (SQLException ex) {</span>
+<span class="nc" id="L88">            System.out.println(ex);</span>
+<span class="nc" id="L89">            throw new ProdutoDAOException(&quot;Falha ao adicionar.&quot;, ex);</span>
         }
     }
     
     @Override
     public List&lt;Produto&gt; getTodos() throws ProdutoDAOException{
         try {
-<span class="nc" id="L92">            Connection con = getConnection();</span>
-<span class="nc" id="L93">            Statement stmt = con.createStatement();</span>
-<span class="nc" id="L94">            ResultSet resultado = stmt.executeQuery(&quot;SELECT * FROM Produto&quot;);</span>
-<span class="nc" id="L95">            List&lt;Produto&gt; lista = new ArrayList&lt;Produto&gt;();</span>
-<span class="nc bnc" id="L96" title="All 2 branches missed.">            while(resultado.next()) {</span>
-<span class="nc" id="L97">                String nome = resultado.getString(&quot;Nome&quot;);</span>
-<span class="nc" id="L98">                double costPrice = resultado.getDouble(&quot;CostPrice&quot;);</span>
-<span class="nc" id="L99">                double transferPrice = resultado.getDouble(&quot;TransferPrice&quot;);</span>
-<span class="nc" id="L100">                Produto p = new Produto(costPrice, transferPrice, nome);</span>
-<span class="nc" id="L101">                lista.add(p);</span>
-<span class="nc" id="L102">            }</span>
-<span class="nc" id="L103">            return lista;</span>
-<span class="nc" id="L104">        } catch (SQLException ex) {</span>
-<span class="nc" id="L105">            throw new ProdutoDAOException(&quot;Falha ao buscar produtos.&quot;, ex);</span>
+<span class="nc" id="L96">            Connection con = getConnection();</span>
+<span class="nc" id="L97">            Statement stmt = con.createStatement();</span>
+<span class="nc" id="L98">            ResultSet resultado = stmt.executeQuery(&quot;SELECT * FROM Produto&quot;);</span>
+<span class="nc" id="L99">            List&lt;Produto&gt; lista = new ArrayList&lt;Produto&gt;();</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">            while(resultado.next()) {</span>
+<span class="nc" id="L101">                String nome = resultado.getString(&quot;Nome&quot;);</span>
+<span class="nc" id="L102">                double costPrice = resultado.getDouble(&quot;CostPrice&quot;);</span>
+<span class="nc" id="L103">                double transferPrice = resultado.getDouble(&quot;TransferPrice&quot;);</span>
+<span class="nc" id="L104">                Produto p = new Produto(costPrice, transferPrice, nome);</span>
+<span class="nc" id="L105">                lista.add(p);</span>
+<span class="nc" id="L106">            }</span>
+<span class="nc" id="L107">            return lista;</span>
+<span class="nc" id="L108">        } catch (SQLException ex) {</span>
+<span class="nc" id="L109">            throw new ProdutoDAOException(&quot;Falha ao buscar produtos.&quot;, ex);</span>
         }    }
+    
+     @Override
+        public Produto getProdutoByNome(String nomeBusca) throws ProdutoDAOException{
+            
+        try {
+<span class="nc" id="L116">            Connection con = getConnection();</span>
+<span class="nc" id="L117">            Statement stmt = con.createStatement();</span>
+<span class="nc" id="L118">            String query = &quot;SELECT * FROM Produto where Nome = '&quot; + nomeBusca + &quot;'&quot;;</span>
+<span class="nc" id="L119">            ResultSet resultado = stmt.executeQuery(query);</span>
+<span class="nc" id="L120">            Produto p = null; </span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">            while(resultado.next()) {</span>
+<span class="nc" id="L122">                String nome = resultado.getString(&quot;Nome&quot;);</span>
+<span class="nc" id="L123">                double costPrice = resultado.getDouble(&quot;CostPrice&quot;);</span>
+<span class="nc" id="L124">                double transferPrice = resultado.getDouble(&quot;TransferPrice&quot;);</span>
+<span class="nc" id="L125">                p = new Produto(costPrice, transferPrice, nome);</span>
+<span class="nc" id="L126">            }</span>
+<span class="nc" id="L127">            return p;</span>
+        }
+<span class="nc" id="L129">        catch (SQLException ex) {</span>
+<span class="nc" id="L130">            throw new ProdutoDAOException(&quot;Falha ao buscar produtos.&quot;, ex);</span>
+        }    
+        }
+        
+    
+    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
