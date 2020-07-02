@@ -18,6 +18,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
     private ProdutoDAOImpl() {
     //throws ProdutoDAOException{
        
+        
         try {
              Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
@@ -35,6 +36,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             System.exit(0);
         }
         */
+        
                 
     }
     
@@ -46,7 +48,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             
             String sql = "CREATE TABLE Produto ("
                     + "Id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
-                    + "Nome VARCHAR(100) NOT NULL,"
+                    + "Nome VARCHAR(100) NOT NULL UNIQUE,"
                     + "CostPrice DOUBLE,"
                     + "TransferPrice DOUBLE"
                     + ")";
@@ -106,4 +108,29 @@ public class ProdutoDAOImpl implements ProdutoDAO {
         } catch (SQLException ex) {
             throw new ProdutoDAOException("Falha ao buscar produtos.", ex);
         }    }
+    
+     @Override
+        public Produto getProdutoByNome(String nomeBusca) throws ProdutoDAOException{
+            
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement();
+            String query = "SELECT * FROM Produto where Nome = '" + nomeBusca + "'";
+            ResultSet resultado = stmt.executeQuery(query);
+            Produto p = null; 
+            while(resultado.next()) {
+                String nome = resultado.getString("Nome");
+                double costPrice = resultado.getDouble("CostPrice");
+                double transferPrice = resultado.getDouble("TransferPrice");
+                p = new Produto(costPrice, transferPrice, nome);
+            }
+            return p;
+        }
+        catch (SQLException ex) {
+            throw new ProdutoDAOException("Falha ao buscar produtos.", ex);
+        }    
+        }
+        
+    
+    
 }

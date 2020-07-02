@@ -12,6 +12,7 @@ public class App {
 //    public static void main(String args[]) throws ProdutoDAOException {
         Fachada fachada; 
         List<Produto> produtos = new ArrayList<Produto>();
+        List<VendaDTO> vendas = new ArrayList<VendaDTO>();
 
         fachada = new Fachada();
 
@@ -19,16 +20,19 @@ public class App {
 
         //Produto tv = fachada.criarProduto(1350.99, 1500, "TV LCD");
         //Produto geladeira = fachada.criarProduto(800, 850, "Geladeira"); 
-        Produto tenis = fachada.criarProduto(199.00, 217.00, "Tenis");
+        Produto nike = fachada.criarProduto(159.00, 227.00, "nike");
+        
+        
 
-        VendaDTO venda = fachada.venderProduto(0.3, tenis);
-        System.out.println("venda" + venda.toString());
+        VendaDTO venda = fachada.venderProduto(0.3, nike);
+        System.out.println("venda> " + venda.toString());
 
 
         
         //lista produtos cadastrados
         try {
             produtos = fachada.buscarProdutos();
+            vendas = fachada.buscarVendas();
         } catch (Exception e) {
         //    throw new ProdutoDAOException("Falha ao buscar produtos!", e);
             System.out.println(e);
@@ -37,5 +41,10 @@ public class App {
         for (Produto p : produtos){
             System.out.println("listaProdutos>" + p.toString());
         }  
+        
+        for (VendaDTO v : vendas){
+            System.out.println("listaVendas>" +v.toString());
+        }  
+        
     }   
 }

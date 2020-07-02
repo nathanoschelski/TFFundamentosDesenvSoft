@@ -23,11 +23,22 @@ public class VendaDAOImpl implements VendaDAO {
     }
     
     private VendaDAOImpl() throws ProdutoDAOException{
+        
         try {
              Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
         } catch (ClassNotFoundException ex) {
             throw new ProdutoDAOException("JdbcOdbDriver not found!!");
         }
+        
+        
+        /*
+        try {
+            createDB();
+        } catch (Exception ex) {
+            System.out.println("Problemas para criar o banco: "+ex.getMessage());
+            System.exit(0);
+        }
+        */
     }
     
     private static void createDB() throws ProdutoDAOException {
@@ -60,45 +71,73 @@ public class VendaDAOImpl implements VendaDAO {
     @Override
     public boolean criarVenda(VendaDTO v) throws ProdutoDAOException {
         try {
-            Connection con = getConnection();
+            System.out.println("AQUI");
+            Connection connection = getConnection();
+            System.out.println("ALI");
             
-            PreparedStatement stmt = con.prepareStatement(
-                    "INSERT INTO Venda (Produto, Margem, SalesPrice) VALUES (?,?,?)" //                             1        2         3            4          5             6
+            PreparedStatement stmt2 = connection.prepareStatement(
+                    "INSERT INTO Venda (Produto, Margem, SalesPrice) VALUES (?,?,?)"
                     );
+            System.out.println("ACOLA");
             Produto p = v.getProduto();
-            //double salesPrice = p.getTransferPrice() * v.getMargem();
-
-            stmt.setString(1, p.getNome());
-            stmt.setDouble(2, v.getMargem());
-            stmt.setDouble(3, v.getSalesPrice());
-            System.out.println(stmt.getWarnings());
+            System.out.println("VendaDAOImpl>criarVenda>Nome " + p.getNome());
+            stmt2.setString(1, p.getNome());
+            stmt2.setDouble(2, v.getMargem());
+            stmt2.setDouble(3, v.getSalesPrice());
+            System.out.println(stmt2.getWarnings());
             
-            int ret = stmt.executeUpdate();
+            int ret = stmt2.executeUpdate();
             System.out.println(ret);
-            con.close();
+            connection.close();
             return (ret>0);
         } catch (SQLException ex) {
-            System.out.println("falhando");
-            throw new ProdutoDAOException("Falha ao adicionar.", ex);
+            System.out.println("VendaDAOImpl> Erro adicionar");
+            throw new ProdutoDAOException("VendaDAOImpl>  Falha ao adicionar.", ex);
         }
     }
     
      @Override
     public List<VendaDTO> getTodos(){
+        
+        ProdutoDAO produtoDao = null;
+        List<VendaDTO> lista = new ArrayList<VendaDTO>();
+        
         try {
             Connection con = getConnection();
             Statement stmt = con.createStatement();
             ResultSet resultado = stmt.executeQuery("SELECT * FROM Venda");
-            List<VendaDTO> lista = new ArrayList<VendaDTO>();
+            try {
+                produtoDao = ProdutoDAOImpl.getInstance();
+                } catch (Exception e) {
+        }
+             
+            
             while(resultado.next()) {
-                String nome = resultado.getString("Nome");
-                double costPrice = resultado.getDouble("CostPrice");
-                double transferPrice = resultado.getDouble("TransferPrice");
-                Produto p = new Produto(costPrice, transferPrice, nome);
-                lista.add(p);
+                String nomeProduto = resultado.getString("Produto");
+                Produto p = null; 
+                
+                 try {
+                    p = produtoDao.getProdutoByNome(nomeProduto);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                 
+                double margem = resultado.getDouble("Margem");
+                double salesPrice = resultado.getDouble("SalesPrice");
+                VendaDTO v = new VendaDTO(margem, salesPrice, p);
+                
+                System.out.println("AQUIIII333 ----" + v.toString());
+                
+                lista.add(v);
             }
             return lista;
         } catch (SQLException ex) {
-            throw new ProdutoDAOException("Falha ao buscar produtos.", ex);
-        }    }
+            System.out.println("Falha ao buscar vendas." + ex);
+        }    
+        return lista;
+    }
+        
+    
+    
+        
 }

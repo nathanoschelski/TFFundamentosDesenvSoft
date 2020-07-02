@@ -15,6 +15,7 @@ public class Fachada {
     //throws ProdutoDAOException{
        try {
             dao = ProdutoDAOImpl.getInstance();
+            vendaDao = VendaDAOImpl.getInstance();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -45,6 +46,14 @@ public class Fachada {
             throw new ProdutoDAOException("Falha ao buscar produtos!", e);
         }
     }
+    
+        public List<VendaDTO> buscarVendas() throws Exception{
+        try {
+            return vendaDao.getTodos();
+        } catch (Exception e) {
+            throw new Exception("Falha ao buscar vendas!", e);
+        }
+    }
 
     public VendaDTO venderProduto(double margem, Produto produto){
         
@@ -63,7 +72,7 @@ public class Fachada {
                 v = null;
             }
        } catch (Exception e) {
-           System.out.println("Falha ao adicionar venda!" + e);
+           System.out.println("Fachada> Falha ao adicionar venda!" + e);
         }
         return v; 
 
