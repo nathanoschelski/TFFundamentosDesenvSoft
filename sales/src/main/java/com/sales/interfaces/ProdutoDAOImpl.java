@@ -15,21 +15,27 @@ public class ProdutoDAOImpl implements ProdutoDAO {
         return ref;
     }
     
-    private ProdutoDAOImpl() throws ProdutoDAOException{
+    private ProdutoDAOImpl() {
+    //throws ProdutoDAOException{
+       
         try {
              Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-        } catch (ClassNotFoundException ex) {
-            throw new ProdutoDAOException("JdbcOdbDriver not found!!");
+
+            } 
+       catch (ClassNotFoundException ex) {
+        System.out.println("Problemas para criar o banco: "+ex.getMessage());
+        //    throw new ProdutoDAOException("JdbcOdbDriver not found!!");
         }
         
-        /*
+       /*
         try {
             createDB();
         } catch (Exception ex) {
             System.out.println("Problemas para criar o banco: "+ex.getMessage());
             System.exit(0);
         }
-                */
+        */
+                
     }
     
     private static void createDB() throws ProdutoDAOException {
@@ -77,7 +83,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             con.close();
             return (ret>0);
         } catch (SQLException ex) {
-            System.out.println("falhando");
+            System.out.println(ex);
             throw new ProdutoDAOException("Falha ao adicionar.", ex);
         }
     }

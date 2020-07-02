@@ -9,27 +9,31 @@ public class Fachada {
 
     private ProdutoDAO dao;
     
-    public Fachada() throws ProdutoDAOException{
+    public Fachada() {
+    
+    //throws ProdutoDAOException{
        try {
             dao = ProdutoDAOImpl.getInstance();
-        } catch (ProdutoDAOException e) {
-            throw new ProdutoDAOException("Falha de criação da fachada!", e);
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
-    public Produto criarProduto(double costPrice, double transferPrice, String nome) throws ProdutoDAOException{
+    public Produto criarProduto(double costPrice, double transferPrice, String nome){
 
-        Produto p = new Produto(costPrice, transferPrice, nome);
-        System.out.println(p.toString());
-        try {
+        try { 
+            Produto p = new Produto(costPrice, transferPrice, nome);
+            System.out.println(p.toString());
             boolean ok = dao.criarProduto(p);
             if(ok) {
                 return p;
             }
             return null;
-       } catch (ProdutoDAOException e) {
-            throw new ProdutoDAOException("Falha ao adicionar produto!", e);
+       } catch (Exception e) {
+           System.out.println("Falha ao adicionar produto! e");
         }
+        return null;
+
     }
 
     public List<Produto> buscarProdutos() throws Exception{
