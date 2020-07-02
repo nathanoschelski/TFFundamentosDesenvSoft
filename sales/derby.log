@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Jul 03 00:26:13 WEST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-0173-11da-1c35-0000070625a8 
+on database directory /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/derbyDB  with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
+Loaded from file:/Users/jbredow/.m2/repository/org/apache/derby/derby/10.8.3.0/derby-10.8.3.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_201-b09
+user.dir=/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.13.6
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

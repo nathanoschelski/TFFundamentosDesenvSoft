@@ -71,70 +71,65 @@ public class VendaDAOImpl implements VendaDAO {
     @Override
     public boolean criarVenda(VendaDTO v) throws ProdutoDAOException {
         try {
-<span class="nc" id="L74">            System.out.println(&quot;AQUI&quot;);</span>
-<span class="nc" id="L75">            Connection connection = getConnection();</span>
-<span class="nc" id="L76">            System.out.println(&quot;ALI&quot;);</span>
+<span class="nc" id="L74">            Connection connection = getConnection();</span>
             
-<span class="nc" id="L78">            PreparedStatement stmt2 = connection.prepareStatement(</span>
+<span class="nc" id="L76">            PreparedStatement stmt2 = connection.prepareStatement(</span>
                     &quot;INSERT INTO Venda (Produto, Margem, SalesPrice) VALUES (?,?,?)&quot;
                     );
-<span class="nc" id="L81">            System.out.println(&quot;ACOLA&quot;);</span>
-<span class="nc" id="L82">            Produto p = v.getProduto();</span>
-<span class="nc" id="L83">            System.out.println(&quot;VendaDAOImpl&gt;criarVenda&gt;Nome &quot; + p.getNome());</span>
-<span class="nc" id="L84">            stmt2.setString(1, p.getNome());</span>
-<span class="nc" id="L85">            stmt2.setDouble(2, v.getMargem());</span>
-<span class="nc" id="L86">            stmt2.setDouble(3, v.getSalesPrice());</span>
-<span class="nc" id="L87">            System.out.println(stmt2.getWarnings());</span>
+<span class="nc" id="L79">            Produto p = v.getProduto();</span>
+<span class="nc" id="L80">            System.out.println(&quot;VendaDAOImpl&gt;criarVenda&gt;Nome &quot; + p.getNome());</span>
+<span class="nc" id="L81">            stmt2.setString(1, p.getNome());</span>
+<span class="nc" id="L82">            stmt2.setDouble(2, v.getMargem());</span>
+<span class="nc" id="L83">            stmt2.setDouble(3, v.getSalesPrice());</span>
+<span class="nc" id="L84">            System.out.println(stmt2.getWarnings());</span>
             
-<span class="nc" id="L89">            int ret = stmt2.executeUpdate();</span>
-<span class="nc" id="L90">            System.out.println(ret);</span>
-<span class="nc" id="L91">            connection.close();</span>
-<span class="nc bnc" id="L92" title="All 2 branches missed.">            return (ret&gt;0);</span>
-<span class="nc" id="L93">        } catch (SQLException ex) {</span>
-<span class="nc" id="L94">            System.out.println(&quot;VendaDAOImpl&gt; Erro adicionar&quot;);</span>
-<span class="nc" id="L95">            throw new ProdutoDAOException(&quot;VendaDAOImpl&gt;  Falha ao adicionar.&quot;, ex);</span>
+<span class="nc" id="L86">            int ret = stmt2.executeUpdate();</span>
+<span class="nc" id="L87">            System.out.println(ret);</span>
+<span class="nc" id="L88">            connection.close();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">            return (ret&gt;0);</span>
+<span class="nc" id="L90">        } catch (SQLException ex) {</span>
+<span class="nc" id="L91">            System.out.println(&quot;VendaDAOImpl&gt; Erro adicionar&quot;);</span>
+<span class="nc" id="L92">            throw new ProdutoDAOException(&quot;VendaDAOImpl&gt;  Falha ao adicionar.&quot;, ex);</span>
         }
     }
     
      @Override
     public List&lt;VendaDTO&gt; getTodos(){
         
-<span class="nc" id="L102">        ProdutoDAO produtoDao = null;</span>
-<span class="nc" id="L103">        List&lt;VendaDTO&gt; lista = new ArrayList&lt;VendaDTO&gt;();</span>
+<span class="nc" id="L99">        ProdutoDAO produtoDao = null;</span>
+<span class="nc" id="L100">        List&lt;VendaDTO&gt; lista = new ArrayList&lt;VendaDTO&gt;();</span>
         
         try {
-<span class="nc" id="L106">            Connection con = getConnection();</span>
-<span class="nc" id="L107">            Statement stmt = con.createStatement();</span>
-<span class="nc" id="L108">            ResultSet resultado = stmt.executeQuery(&quot;SELECT * FROM Venda&quot;);</span>
+<span class="nc" id="L103">            Connection con = getConnection();</span>
+<span class="nc" id="L104">            Statement stmt = con.createStatement();</span>
+<span class="nc" id="L105">            ResultSet resultado = stmt.executeQuery(&quot;SELECT * FROM Venda&quot;);</span>
             try {
-<span class="nc" id="L110">                produtoDao = ProdutoDAOImpl.getInstance();</span>
-<span class="nc" id="L111">                } catch (Exception e) {</span>
-<span class="nc" id="L112">        }</span>
+<span class="nc" id="L107">                produtoDao = ProdutoDAOImpl.getInstance();</span>
+<span class="nc" id="L108">                } catch (Exception e) {</span>
+<span class="nc" id="L109">        }</span>
              
             
-<span class="nc bnc" id="L115" title="All 2 branches missed.">            while(resultado.next()) {</span>
-<span class="nc" id="L116">                String nomeProduto = resultado.getString(&quot;Produto&quot;);</span>
-<span class="nc" id="L117">                Produto p = null; </span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">            while(resultado.next()) {</span>
+<span class="nc" id="L113">                String nomeProduto = resultado.getString(&quot;Produto&quot;);</span>
+<span class="nc" id="L114">                Produto p = null; </span>
                 
                  try {
-<span class="nc" id="L120">                    p = produtoDao.getProdutoByNome(nomeProduto);</span>
-<span class="nc" id="L121">                } catch (Exception e) {</span>
-<span class="nc" id="L122">                    System.out.println(e);</span>
-<span class="nc" id="L123">                }</span>
+<span class="nc" id="L117">                    p = produtoDao.getProdutoByNome(nomeProduto);</span>
+<span class="nc" id="L118">                } catch (Exception e) {</span>
+<span class="nc" id="L119">                    System.out.println(e);</span>
+<span class="nc" id="L120">                }</span>
                  
-<span class="nc" id="L125">                double margem = resultado.getDouble(&quot;Margem&quot;);</span>
-<span class="nc" id="L126">                double salesPrice = resultado.getDouble(&quot;SalesPrice&quot;);</span>
-<span class="nc" id="L127">                VendaDTO v = new VendaDTO(margem, salesPrice, p);</span>
+<span class="nc" id="L122">                double margem = resultado.getDouble(&quot;Margem&quot;);</span>
+<span class="nc" id="L123">                double salesPrice = resultado.getDouble(&quot;SalesPrice&quot;);</span>
+<span class="nc" id="L124">                VendaDTO v = new VendaDTO(margem, salesPrice, p);</span>
                 
-<span class="nc" id="L129">                System.out.println(&quot;AQUIIII333 ----&quot; + v.toString());</span>
-                
-<span class="nc" id="L131">                lista.add(v);</span>
-<span class="nc" id="L132">            }</span>
-<span class="nc" id="L133">            return lista;</span>
-<span class="nc" id="L134">        } catch (SQLException ex) {</span>
-<span class="nc" id="L135">            System.out.println(&quot;Falha ao buscar vendas.&quot; + ex);</span>
+<span class="nc" id="L126">                lista.add(v);</span>
+<span class="nc" id="L127">            }</span>
+<span class="nc" id="L128">            return lista;</span>
+<span class="nc" id="L129">        } catch (SQLException ex) {</span>
+<span class="nc" id="L130">            System.out.println(&quot;Falha ao buscar vendas.&quot; + ex);</span>
         }    
-<span class="nc" id="L137">        return lista;</span>
+<span class="nc" id="L132">        return lista;</span>
     }
         
     

@@ -17,21 +17,21 @@ import java.util.List;
            //calcula comissao extra pela margem de venda
 <span class="nc bnc" id="L18" title="All 4 branches missed.">           if (v.getMargem() &gt;= 0.1 &amp;&amp; v.getMargem() &lt; 0.2) {</span>
 <span class="nc" id="L19">               extra = 0.01; </span>
-<span class="nc" id="L20">               System.out.println(extra);</span>
+               //System.out.println(extra);
            }
 <span class="nc bnc" id="L22" title="All 4 branches missed.">           else if(v.getMargem() &gt;= 0.2 &amp;&amp; v.getMargem() &lt; 0.3){</span>
 <span class="nc" id="L23">               extra = 0.03; </span>
-<span class="nc" id="L24">               System.out.println(extra);</span>
+              // System.out.println(extra);
            }
 <span class="nc bnc" id="L26" title="All 2 branches missed.">           else if(v.getMargem() &gt;= 0.3 ){</span>
 <span class="nc" id="L27">                extra = 0.06; </span>
-<span class="nc" id="L28">                System.out.println(extra);</span>
+               // System.out.println(extra);
            }
            
            //se for produto do mes adiciona 5% de comissao
 <span class="nc bnc" id="L32" title="All 2 branches missed.">           if(p.isProdutoDoMes()){</span>
 <span class="nc" id="L33">                extra += 0.05; </span>
-<span class="nc" id="L34">                System.out.println(extra);</span>
+               // System.out.println(extra);
            }
            
             //se for venda for mmaior que 1000 adiciona 2% de comissao
@@ -40,7 +40,7 @@ import java.util.List;
 <span class="nc" id="L40">                System.out.println(extra);</span>
            }
            
-<span class="nc" id="L43">           System.out.println(&quot;final: &quot; + extra + &quot; Margem &quot; + v.getMargem() );</span>
+          // System.out.println(&quot;final: &quot; + extra + &quot; Margem &quot; + v.getMargem() );
 <span class="nc" id="L44">           lucro += (v.getSalesPrice() *  extra);</span>
 <span class="nc" id="L45">        }  </span>
             

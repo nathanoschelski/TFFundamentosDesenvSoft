@@ -45,7 +45,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
         try {
             Connection con = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
             Statement sta = con.createStatement();
-            
+
             String sql = "CREATE TABLE Produto ("
                     + "Id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
                     + "Nome VARCHAR(100) NOT NULL UNIQUE,"
