@@ -63,14 +63,14 @@ public class VendaDAOImpl implements VendaDAO {
             Connection con = getConnection();
             
             PreparedStatement stmt = con.prepareStatement(
-                    "INSERT INTO Venda (IdProduto, Margem, SalesPrice) VALUES (?,?,?)" //                             1        2         3            4          5             6
+                    "INSERT INTO Venda (Produto, Margem, SalesPrice) VALUES (?,?,?)" //                             1        2         3            4          5             6
                     );
             Produto p = v.getProduto();
-            double salesPrice = p.getTransferPrice() * v.getMargem();
+            //double salesPrice = p.getTransferPrice() * v.getMargem();
 
             stmt.setString(1, p.getNome());
             stmt.setDouble(2, v.getMargem());
-            stmt.setDouble(3, salesPrice);
+            stmt.setDouble(3, v.getSalesPrice());
             System.out.println(stmt.getWarnings());
             
             int ret = stmt.executeUpdate();
@@ -82,4 +82,23 @@ public class VendaDAOImpl implements VendaDAO {
             throw new ProdutoDAOException("Falha ao adicionar.", ex);
         }
     }
+    
+     @Override
+    public List<VendaDTO> getTodos(){
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement();
+            ResultSet resultado = stmt.executeQuery("SELECT * FROM Venda");
+            List<VendaDTO> lista = new ArrayList<VendaDTO>();
+            while(resultado.next()) {
+                String nome = resultado.getString("Nome");
+                double costPrice = resultado.getDouble("CostPrice");
+                double transferPrice = resultado.getDouble("TransferPrice");
+                Produto p = new Produto(costPrice, transferPrice, nome);
+                lista.add(p);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            throw new ProdutoDAOException("Falha ao buscar produtos.", ex);
+        }    }
 }
