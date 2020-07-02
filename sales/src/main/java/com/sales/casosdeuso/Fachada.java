@@ -75,7 +75,24 @@ public class Fachada {
            System.out.println("Fachada> Falha ao adicionar venda!" + e);
         }
         return v; 
-
     } 
+    
+        public double CalculaLucro (String tipo){
+        
+            double lucro;
+            List<VendaDTO> vendas = new ArrayList<VendaDTO>();
+            
+            try {
+                vendas = buscarVendas();
+               } catch (Exception e) {
+                 System.out.println("Fachada>CalculuaLucro> Falha ao pegar lista de vendas!" + e);
+            }
+              
+            CalculoLucroFactory calculoFactory = new CalculoLucroFactory();
+            CalculoLucro calculo = calculoFactory.criarCalculoLucro(tipo); 
+        
+            lucro = calculo.calcular(vendas); 
+            return lucro; 
+    }
 }
 
