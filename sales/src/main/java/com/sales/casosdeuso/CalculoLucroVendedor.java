@@ -17,21 +17,21 @@ public class CalculoLucroVendedor implements CalculoLucro {
            //calcula comissao extra pela margem de venda
            if (v.getMargem() >= 0.1 && v.getMargem() < 0.2) {
                extra = 0.01; 
-               System.out.println(extra);
+               //System.out.println(extra);
            }
            else if(v.getMargem() >= 0.2 && v.getMargem() < 0.3){
                extra = 0.03; 
-               System.out.println(extra);
+              // System.out.println(extra);
            }
            else if(v.getMargem() >= 0.3 ){
                 extra = 0.06; 
-                System.out.println(extra);
+               // System.out.println(extra);
            }
            
            //se for produto do mes adiciona 5% de comissao
            if(p.isProdutoDoMes()){
                 extra += 0.05; 
-                System.out.println(extra);
+               // System.out.println(extra);
            }
            
             //se for venda for mmaior que 1000 adiciona 2% de comissao
@@ -40,7 +40,7 @@ public class CalculoLucroVendedor implements CalculoLucro {
                 System.out.println(extra);
            }
            
-           System.out.println("final: " + extra + " Margem " + v.getMargem() );
+          // System.out.println("final: " + extra + " Margem " + v.getMargem() );
            lucro += (v.getSalesPrice() *  extra);
         }  
             

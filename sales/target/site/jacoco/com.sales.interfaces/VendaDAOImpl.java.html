@@ -23,64 +23,122 @@ public class VendaDAOImpl implements VendaDAO {
     }
     
 <span class="nc" id="L25">    private VendaDAOImpl() throws ProdutoDAOException{</span>
+        
         try {
-<span class="nc" id="L27">             Class.forName(&quot;org.apache.derby.jdbc.EmbeddedDriver&quot;);</span>
-<span class="nc" id="L28">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L29">            throw new ProdutoDAOException(&quot;JdbcOdbDriver not found!!&quot;);</span>
-<span class="nc" id="L30">        }</span>
-<span class="nc" id="L31">    }</span>
+<span class="nc" id="L28">             Class.forName(&quot;org.apache.derby.jdbc.EmbeddedDriver&quot;);</span>
+<span class="nc" id="L29">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L30">            throw new ProdutoDAOException(&quot;JdbcOdbDriver not found!!&quot;);</span>
+<span class="nc" id="L31">        }</span>
+        
+        
+        /*
+        try {
+            createDB();
+        } catch (Exception ex) {
+            System.out.println(&quot;Problemas para criar o banco: &quot;+ex.getMessage());
+            System.exit(0);
+        }
+        */
+<span class="nc" id="L42">    }</span>
     
     private static void createDB() throws ProdutoDAOException {
        // System.out.println(&quot;Vem aqui&quot;);
         try {
-<span class="nc" id="L36">            Connection con = DriverManager.getConnection(&quot;jdbc:derby:derbyDB;create=true&quot;);</span>
-<span class="nc" id="L37">            Statement sta = con.createStatement();</span>
+<span class="nc" id="L47">            Connection con = DriverManager.getConnection(&quot;jdbc:derby:derbyDB;create=true&quot;);</span>
+<span class="nc" id="L48">            Statement sta = con.createStatement();</span>
             
-<span class="nc" id="L39">            String sql = &quot;CREATE TABLE Venda (&quot; </span>
+<span class="nc" id="L50">            String sql = &quot;CREATE TABLE Venda (&quot; </span>
                     + &quot;Id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),&quot;
                     + &quot;Produto VARCHAR(100) NOT NULL,&quot;
                     + &quot;Margem DOUBLE,&quot; 
                     +&quot;SalesPrice DOUBLE&quot;
                     + &quot;)&quot;;
             
-<span class="nc" id="L46">            sta.executeUpdate(sql);</span>
-<span class="nc" id="L47">            sta.close();</span>
-<span class="nc" id="L48">            con.close();</span>
-<span class="nc" id="L49">        } catch (SQLException ex) {</span>
-<span class="nc" id="L50">            throw new ProdutoDAOException(ex.getMessage());</span>
-<span class="nc" id="L51">        }</span>
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L57">            sta.executeUpdate(sql);</span>
+<span class="nc" id="L58">            sta.close();</span>
+<span class="nc" id="L59">            con.close();</span>
+<span class="nc" id="L60">        } catch (SQLException ex) {</span>
+<span class="nc" id="L61">            throw new ProdutoDAOException(ex.getMessage());</span>
+<span class="nc" id="L62">        }</span>
+<span class="nc" id="L63">    }</span>
         
     
     private static Connection getConnection() throws SQLException {
         //derbyDB sera o nome do diretorio criado localmente
-<span class="nc" id="L57">        return DriverManager.getConnection(&quot;jdbc:derby:derbyDB&quot;);</span>
+<span class="nc" id="L68">        return DriverManager.getConnection(&quot;jdbc:derby:derbyDB&quot;);</span>
     }
     
     @Override
     public boolean criarVenda(VendaDTO v) throws ProdutoDAOException {
         try {
-<span class="nc" id="L63">            Connection con = getConnection();</span>
+<span class="nc" id="L74">            System.out.println(&quot;AQUI&quot;);</span>
+<span class="nc" id="L75">            Connection connection = getConnection();</span>
+<span class="nc" id="L76">            System.out.println(&quot;ALI&quot;);</span>
             
-<span class="nc" id="L65">            PreparedStatement stmt = con.prepareStatement(</span>
-                    &quot;INSERT INTO Venda (IdProduto, Margem, SalesPrice) VALUES (?,?,?)&quot; //                             1        2         3            4          5             6
+<span class="nc" id="L78">            PreparedStatement stmt2 = connection.prepareStatement(</span>
+                    &quot;INSERT INTO Venda (Produto, Margem, SalesPrice) VALUES (?,?,?)&quot;
                     );
-<span class="nc" id="L68">            Produto p = v.getProduto();</span>
-<span class="nc" id="L69">            double salesPrice = p.getTransferPrice() * v.getMargem();</span>
-
-<span class="nc" id="L71">            stmt.setString(1, p.getNome());</span>
-<span class="nc" id="L72">            stmt.setDouble(2, v.getMargem());</span>
-<span class="nc" id="L73">            stmt.setDouble(3, salesPrice);</span>
-<span class="nc" id="L74">            System.out.println(stmt.getWarnings());</span>
+<span class="nc" id="L81">            System.out.println(&quot;ACOLA&quot;);</span>
+<span class="nc" id="L82">            Produto p = v.getProduto();</span>
+<span class="nc" id="L83">            System.out.println(&quot;VendaDAOImpl&gt;criarVenda&gt;Nome &quot; + p.getNome());</span>
+<span class="nc" id="L84">            stmt2.setString(1, p.getNome());</span>
+<span class="nc" id="L85">            stmt2.setDouble(2, v.getMargem());</span>
+<span class="nc" id="L86">            stmt2.setDouble(3, v.getSalesPrice());</span>
+<span class="nc" id="L87">            System.out.println(stmt2.getWarnings());</span>
             
-<span class="nc" id="L76">            int ret = stmt.executeUpdate();</span>
-<span class="nc" id="L77">            System.out.println(ret);</span>
-<span class="nc" id="L78">            con.close();</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">            return (ret&gt;0);</span>
-<span class="nc" id="L80">        } catch (SQLException ex) {</span>
-<span class="nc" id="L81">            System.out.println(&quot;falhando&quot;);</span>
-<span class="nc" id="L82">            throw new ProdutoDAOException(&quot;Falha ao adicionar.&quot;, ex);</span>
+<span class="nc" id="L89">            int ret = stmt2.executeUpdate();</span>
+<span class="nc" id="L90">            System.out.println(ret);</span>
+<span class="nc" id="L91">            connection.close();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            return (ret&gt;0);</span>
+<span class="nc" id="L93">        } catch (SQLException ex) {</span>
+<span class="nc" id="L94">            System.out.println(&quot;VendaDAOImpl&gt; Erro adicionar&quot;);</span>
+<span class="nc" id="L95">            throw new ProdutoDAOException(&quot;VendaDAOImpl&gt;  Falha ao adicionar.&quot;, ex);</span>
         }
     }
+    
+     @Override
+    public List&lt;VendaDTO&gt; getTodos(){
+        
+<span class="nc" id="L102">        ProdutoDAO produtoDao = null;</span>
+<span class="nc" id="L103">        List&lt;VendaDTO&gt; lista = new ArrayList&lt;VendaDTO&gt;();</span>
+        
+        try {
+<span class="nc" id="L106">            Connection con = getConnection();</span>
+<span class="nc" id="L107">            Statement stmt = con.createStatement();</span>
+<span class="nc" id="L108">            ResultSet resultado = stmt.executeQuery(&quot;SELECT * FROM Venda&quot;);</span>
+            try {
+<span class="nc" id="L110">                produtoDao = ProdutoDAOImpl.getInstance();</span>
+<span class="nc" id="L111">                } catch (Exception e) {</span>
+<span class="nc" id="L112">        }</span>
+             
+            
+<span class="nc bnc" id="L115" title="All 2 branches missed.">            while(resultado.next()) {</span>
+<span class="nc" id="L116">                String nomeProduto = resultado.getString(&quot;Produto&quot;);</span>
+<span class="nc" id="L117">                Produto p = null; </span>
+                
+                 try {
+<span class="nc" id="L120">                    p = produtoDao.getProdutoByNome(nomeProduto);</span>
+<span class="nc" id="L121">                } catch (Exception e) {</span>
+<span class="nc" id="L122">                    System.out.println(e);</span>
+<span class="nc" id="L123">                }</span>
+                 
+<span class="nc" id="L125">                double margem = resultado.getDouble(&quot;Margem&quot;);</span>
+<span class="nc" id="L126">                double salesPrice = resultado.getDouble(&quot;SalesPrice&quot;);</span>
+<span class="nc" id="L127">                VendaDTO v = new VendaDTO(margem, salesPrice, p);</span>
+                
+<span class="nc" id="L129">                System.out.println(&quot;AQUIIII333 ----&quot; + v.toString());</span>
+                
+<span class="nc" id="L131">                lista.add(v);</span>
+<span class="nc" id="L132">            }</span>
+<span class="nc" id="L133">            return lista;</span>
+<span class="nc" id="L134">        } catch (SQLException ex) {</span>
+<span class="nc" id="L135">            System.out.println(&quot;Falha ao buscar vendas.&quot; + ex);</span>
+        }    
+<span class="nc" id="L137">        return lista;</span>
+    }
+        
+    
+    
+        
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

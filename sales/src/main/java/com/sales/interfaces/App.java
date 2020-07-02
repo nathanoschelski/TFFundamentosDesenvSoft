@@ -9,27 +9,25 @@ public class App {
 
 
     public static void main(String args[]) {
-//    public static void main(String args[]) throws ProdutoDAOException {
         Fachada fachada; 
+        
         List<Produto> produtos = new ArrayList<Produto>();
         List<VendaDTO> vendas = new ArrayList<VendaDTO>();
 
         fachada = new Fachada();
 
-        //cadastra produtos
+        //CADASTRA PRODUTOS
 
-        //Produto tv = fachada.criarProduto(1350.99, 1500, "TV LCD");
-        //Produto geladeira = fachada.criarProduto(800, 850, "Geladeira"); 
+        Produto tv = fachada.criarProduto(1350.99, 1500, "TV LCD");
+        Produto geladeira = fachada.criarProduto(800, 850, "Geladeira"); 
         Produto nike = fachada.criarProduto(159.00, 227.00, "nike");
         
         
-
-        VendaDTO venda = fachada.venderProduto(0.3, nike);
+        //CRIA UMA VENDA 
+        VendaDTO venda = fachada.venderProduto(0.2, tv);
         System.out.println("venda> " + venda.toString());
 
-
-        
-        //lista produtos cadastrados
+        //LISTA PRODUTOS E VENDAS CADASTRADOS
         try {
             produtos = fachada.buscarProdutos();
             vendas = fachada.buscarVendas();
@@ -45,6 +43,15 @@ public class App {
         for (VendaDTO v : vendas){
             System.out.println("listaVendas>" +v.toString());
         }  
+        
+        //CALCULA LUCRO DA EMPRESA E DO VENDEDOR
+        double lucroEmpresa;
+        double lucroVendedor; 
+        lucroVendedor = fachada.CalculaLucro("Vendedor");
+        lucroEmpresa = fachada.CalculaLucro("Empresa"); 
+        System.out.println("Lucro da empresa é: " + lucroEmpresa);
+        System.out.println("Lucro do vendedor é: " + lucroVendedor); 
+        
         
     }   
 }

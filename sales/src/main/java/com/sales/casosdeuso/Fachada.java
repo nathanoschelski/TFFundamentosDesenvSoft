@@ -63,12 +63,12 @@ public class Fachada {
         
         try {
             double salesPrice = (1 + margem) * produto.getTransferPrice();
-            System.out.println("salesPrice: " + salesPrice);
+          //  System.out.println("salesPrice: " + salesPrice);
             v = new VendaDTO(margem, salesPrice, produto);
-            System.out.println("Vendeu aqui: " + v.toString());
+            //System.out.println("Vendeu aqui: " + v.toString());
             boolean ok = vendaDao.criarVenda(v);
             if(!ok) {
-                System.out.println("retornou ok aqui: " + v.toString());
+                //System.out.println("retornou ok aqui: " + v.toString());
                 v = null;
             }
        } catch (Exception e) {

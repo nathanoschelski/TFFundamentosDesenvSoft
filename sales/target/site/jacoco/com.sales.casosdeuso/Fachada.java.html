@@ -8,40 +8,91 @@ import java.util.ArrayList;
 public class Fachada {
 
     private ProdutoDAO dao;
+    private VendaDAO vendaDao;
     
-<span class="nc" id="L12">    public Fachada() {</span>
+<span class="nc" id="L13">    public Fachada() {</span>
     
     //throws ProdutoDAOException{
        try {
-<span class="nc" id="L16">            dao = ProdutoDAOImpl.getInstance();</span>
-<span class="nc" id="L17">        } catch (Exception e) {</span>
-<span class="nc" id="L18">            System.out.println(e);</span>
-<span class="nc" id="L19">        }</span>
-<span class="nc" id="L20">    }</span>
+<span class="nc" id="L17">            dao = ProdutoDAOImpl.getInstance();</span>
+<span class="nc" id="L18">            vendaDao = VendaDAOImpl.getInstance();</span>
+<span class="nc" id="L19">        } catch (Exception e) {</span>
+<span class="nc" id="L20">            System.out.println(e);</span>
+<span class="nc" id="L21">        }</span>
+<span class="nc" id="L22">    }</span>
 
     public Produto criarProduto(double costPrice, double transferPrice, String nome){
+        
+<span class="nc" id="L26">        Produto p = null;</span>
 
         try { 
-<span class="nc" id="L25">            Produto p = new Produto(costPrice, transferPrice, nome);</span>
-<span class="nc" id="L26">            System.out.println(p.toString());</span>
-<span class="nc" id="L27">            boolean ok = dao.criarProduto(p);</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">            if(ok) {</span>
-<span class="nc" id="L29">                return p;</span>
+<span class="nc" id="L29">            p = new Produto(costPrice, transferPrice, nome);</span>
+<span class="nc" id="L30">            System.out.println(&quot;produto&gt;&quot; + p.toString());</span>
+<span class="nc" id="L31">            boolean ok = dao.criarProduto(p);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            if(!ok) {</span>
+<span class="nc" id="L33">                p = null;</span>
             }
-<span class="nc" id="L31">            return null;</span>
-<span class="nc" id="L32">       } catch (Exception e) {</span>
-<span class="nc" id="L33">           System.out.println(&quot;Falha ao adicionar produto! e&quot;);</span>
-        }
-<span class="nc" id="L35">        return null;</span>
+<span class="nc" id="L35">       } catch (Exception e) {</span>
+<span class="nc" id="L36">           System.out.println(&quot;Falha ao adicionar produto!&quot; + e);</span>
+<span class="nc" id="L37">        }</span>
+<span class="nc" id="L38">        return p;</span>
 
     }
 
     public List&lt;Produto&gt; buscarProdutos() throws Exception{
         try {
-<span class="nc" id="L41">            return dao.getTodos();</span>
-<span class="nc" id="L42">        } catch (ProdutoDAOException e) {</span>
-<span class="nc" id="L43">            throw new ProdutoDAOException(&quot;Falha ao buscar produtos!&quot;, e);</span>
+<span class="nc" id="L44">            return dao.getTodos();</span>
+<span class="nc" id="L45">        } catch (ProdutoDAOException e) {</span>
+<span class="nc" id="L46">            throw new ProdutoDAOException(&quot;Falha ao buscar produtos!&quot;, e);</span>
         }
+    }
+    
+        public List&lt;VendaDTO&gt; buscarVendas() throws Exception{
+        try {
+<span class="nc" id="L52">            return vendaDao.getTodos();</span>
+<span class="nc" id="L53">        } catch (Exception e) {</span>
+<span class="nc" id="L54">            throw new Exception(&quot;Falha ao buscar vendas!&quot;, e);</span>
+        }
+    }
+
+    public VendaDTO venderProduto(double margem, Produto produto){
+        
+<span class="nc" id="L60">        VendaDTO v = null; </span>
+<span class="nc" id="L61">        System.out.println(margem + &quot; - &quot; + produto.getNome());</span>
+        
+        
+        try {
+<span class="nc" id="L65">            double salesPrice = (1 + margem) * produto.getTransferPrice();</span>
+<span class="nc" id="L66">            System.out.println(&quot;salesPrice: &quot; + salesPrice);</span>
+<span class="nc" id="L67">            v = new VendaDTO(margem, salesPrice, produto);</span>
+<span class="nc" id="L68">            System.out.println(&quot;Vendeu aqui: &quot; + v.toString());</span>
+<span class="nc" id="L69">            boolean ok = vendaDao.criarVenda(v);</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">            if(!ok) {</span>
+<span class="nc" id="L71">                System.out.println(&quot;retornou ok aqui: &quot; + v.toString());</span>
+<span class="nc" id="L72">                v = null;</span>
+            }
+<span class="nc" id="L74">       } catch (Exception e) {</span>
+<span class="nc" id="L75">           System.out.println(&quot;Fachada&gt; Falha ao adicionar venda!&quot; + e);</span>
+<span class="nc" id="L76">        }</span>
+<span class="nc" id="L77">        return v; </span>
+    } 
+    
+        public double CalculaLucro (String tipo){
+        
+            double lucro;
+<span class="nc" id="L83">            List&lt;VendaDTO&gt; vendas = new ArrayList&lt;VendaDTO&gt;();</span>
+            
+            try {
+<span class="nc" id="L86">                vendas = buscarVendas();</span>
+<span class="nc" id="L87">               } catch (Exception e) {</span>
+<span class="nc" id="L88">                 System.out.println(&quot;Fachada&gt;CalculuaLucro&gt; Falha ao pegar lista de vendas!&quot; + e);</span>
+<span class="nc" id="L89">            }</span>
+              
+<span class="nc" id="L91">            CalculoLucroFactory calculoFactory = new CalculoLucroFactory();</span>
+<span class="nc" id="L92">            CalculoLucro calculo = calculoFactory.criarCalculoLucro(tipo); </span>
+        
+<span class="nc" id="L94">            lucro = calculo.calcular(vendas); </span>
+<span class="nc" id="L95">            return lucro; </span>
     }
 }
 

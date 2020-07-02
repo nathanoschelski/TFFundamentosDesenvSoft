@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculoLucroVendedor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sales</a> &gt; <a href="index.source.html" class="el_package">com.sales.casosdeuso</a> &gt; <span class="el_source">CalculoLucroVendedor.java</span></div><h1>CalculoLucroVendedor.java</h1><pre class="source lang-java linenums">package com.sales.casosdeuso;
 import com.sales.entidades.*;
 import com.sales.interfaces.*;
-<span class="nc" id="L4">public class CalculoLucroVendedor implements CalculoLucro {</span>
+import java.util.List;
+<span class="nc" id="L5">public class CalculoLucroVendedor implements CalculoLucro {</span>
     
     @Override
-    public double calcular(VendaDTO venda){
+    public double calcular(List&lt;VendaDTO&gt; vendas){
+                
+<span class="nc" id="L10">        double lucro = 0;</span>
+<span class="nc" id="L11">        double extra = 0; </span>
         
-<span class="nc" id="L9">        double lucro = 100;</span>
-<span class="nc" id="L10">        return lucro;</span>
-        
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        for (VendaDTO v : vendas){</span>
+           
+<span class="nc" id="L15">            Produto p = v.getProduto();</span>
+            
+           //calcula comissao extra pela margem de venda
+<span class="nc bnc" id="L18" title="All 4 branches missed.">           if (v.getMargem() &gt;= 0.1 &amp;&amp; v.getMargem() &lt; 0.2) {</span>
+<span class="nc" id="L19">               extra = 0.01; </span>
+<span class="nc" id="L20">               System.out.println(extra);</span>
+           }
+<span class="nc bnc" id="L22" title="All 4 branches missed.">           else if(v.getMargem() &gt;= 0.2 &amp;&amp; v.getMargem() &lt; 0.3){</span>
+<span class="nc" id="L23">               extra = 0.03; </span>
+<span class="nc" id="L24">               System.out.println(extra);</span>
+           }
+<span class="nc bnc" id="L26" title="All 2 branches missed.">           else if(v.getMargem() &gt;= 0.3 ){</span>
+<span class="nc" id="L27">                extra = 0.06; </span>
+<span class="nc" id="L28">                System.out.println(extra);</span>
+           }
+           
+           //se for produto do mes adiciona 5% de comissao
+<span class="nc bnc" id="L32" title="All 2 branches missed.">           if(p.isProdutoDoMes()){</span>
+<span class="nc" id="L33">                extra += 0.05; </span>
+<span class="nc" id="L34">                System.out.println(extra);</span>
+           }
+           
+            //se for venda for mmaior que 1000 adiciona 2% de comissao
+<span class="nc bnc" id="L38" title="All 2 branches missed.">           if(v.getSalesPrice() &gt; 1000){</span>
+<span class="nc" id="L39">                extra += 0.02; </span>
+<span class="nc" id="L40">                System.out.println(extra);</span>
+           }
+           
+<span class="nc" id="L43">           System.out.println(&quot;final: &quot; + extra + &quot; Margem &quot; + v.getMargem() );</span>
+<span class="nc" id="L44">           lucro += (v.getSalesPrice() *  extra);</span>
+<span class="nc" id="L45">        }  </span>
+            
+<span class="nc" id="L47">        return lucro;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
