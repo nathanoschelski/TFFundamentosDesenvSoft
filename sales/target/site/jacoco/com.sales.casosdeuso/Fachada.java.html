@@ -63,12 +63,12 @@ public class Fachada {
         
         try {
 <span class="nc" id="L65">            double salesPrice = (1 + margem) * produto.getTransferPrice();</span>
-<span class="nc" id="L66">            System.out.println(&quot;salesPrice: &quot; + salesPrice);</span>
+          //  System.out.println(&quot;salesPrice: &quot; + salesPrice);
 <span class="nc" id="L67">            v = new VendaDTO(margem, salesPrice, produto);</span>
-<span class="nc" id="L68">            System.out.println(&quot;Vendeu aqui: &quot; + v.toString());</span>
+            //System.out.println(&quot;Vendeu aqui: &quot; + v.toString());
 <span class="nc" id="L69">            boolean ok = vendaDao.criarVenda(v);</span>
 <span class="nc bnc" id="L70" title="All 2 branches missed.">            if(!ok) {</span>
-<span class="nc" id="L71">                System.out.println(&quot;retornou ok aqui: &quot; + v.toString());</span>
+                //System.out.println(&quot;retornou ok aqui: &quot; + v.toString());
 <span class="nc" id="L72">                v = null;</span>
             }
 <span class="nc" id="L74">       } catch (Exception e) {</span>

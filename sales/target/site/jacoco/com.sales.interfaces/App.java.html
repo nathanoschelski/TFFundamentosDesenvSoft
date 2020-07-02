@@ -9,43 +9,50 @@ import java.util.ArrayList;
 
 
     public static void main(String args[]) {
-//    public static void main(String args[]) throws ProdutoDAOException {
         Fachada fachada; 
+        
 <span class="nc" id="L14">        List&lt;Produto&gt; produtos = new ArrayList&lt;Produto&gt;();</span>
 <span class="nc" id="L15">        List&lt;VendaDTO&gt; vendas = new ArrayList&lt;VendaDTO&gt;();</span>
 
 <span class="nc" id="L17">        fachada = new Fachada();</span>
 
-        //cadastra produtos
+        //CADASTRA PRODUTOS
 
-        //Produto tv = fachada.criarProduto(1350.99, 1500, &quot;TV LCD&quot;);
-        //Produto geladeira = fachada.criarProduto(800, 850, &quot;Geladeira&quot;); 
+<span class="nc" id="L21">        Produto tv = fachada.criarProduto(1350.99, 1500, &quot;TV LCD&quot;);</span>
+<span class="nc" id="L22">        Produto geladeira = fachada.criarProduto(800, 850, &quot;Geladeira&quot;); </span>
 <span class="nc" id="L23">        Produto nike = fachada.criarProduto(159.00, 227.00, &quot;nike&quot;);</span>
         
         
-
-<span class="nc" id="L27">        VendaDTO venda = fachada.venderProduto(0.3, nike);</span>
+        //CRIA UMA VENDA 
+<span class="nc" id="L27">        VendaDTO venda = fachada.venderProduto(0.2, tv);</span>
 <span class="nc" id="L28">        System.out.println(&quot;venda&gt; &quot; + venda.toString());</span>
 
-
-        
-        //lista produtos cadastrados
+        //LISTA PRODUTOS E VENDAS CADASTRADOS
         try {
-<span class="nc" id="L34">            produtos = fachada.buscarProdutos();</span>
-<span class="nc" id="L35">            vendas = fachada.buscarVendas();</span>
-<span class="nc" id="L36">        } catch (Exception e) {</span>
+<span class="nc" id="L32">            produtos = fachada.buscarProdutos();</span>
+<span class="nc" id="L33">            vendas = fachada.buscarVendas();</span>
+<span class="nc" id="L34">        } catch (Exception e) {</span>
         //    throw new ProdutoDAOException(&quot;Falha ao buscar produtos!&quot;, e);
-<span class="nc" id="L38">            System.out.println(e);</span>
+<span class="nc" id="L36">            System.out.println(e);</span>
             //TODO: handle exception
-<span class="nc" id="L40">       }</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (Produto p : produtos){</span>
-<span class="nc" id="L42">            System.out.println(&quot;listaProdutos&gt;&quot; + p.toString());</span>
-<span class="nc" id="L43">        }  </span>
+<span class="nc" id="L38">       }</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (Produto p : produtos){</span>
+<span class="nc" id="L40">            System.out.println(&quot;listaProdutos&gt;&quot; + p.toString());</span>
+<span class="nc" id="L41">        }  </span>
         
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        for (VendaDTO v : vendas){</span>
-<span class="nc" id="L46">            System.out.println(&quot;listaVendas&gt;&quot; +v.toString());</span>
-<span class="nc" id="L47">        }  </span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (VendaDTO v : vendas){</span>
+<span class="nc" id="L44">            System.out.println(&quot;listaVendas&gt;&quot; +v.toString());</span>
+<span class="nc" id="L45">        }  </span>
         
-<span class="nc" id="L49">    }   </span>
+        //CALCULA LUCRO DA EMPRESA E DO VENDEDOR
+        double lucroEmpresa;
+        double lucroVendedor; 
+<span class="nc" id="L50">        lucroVendedor = fachada.CalculaLucro(&quot;Vendedor&quot;);</span>
+<span class="nc" id="L51">        lucroEmpresa = fachada.CalculaLucro(&quot;Empresa&quot;); </span>
+<span class="nc" id="L52">        System.out.println(&quot;Lucro da empresa é: &quot; + lucroEmpresa);</span>
+<span class="nc" id="L53">        System.out.println(&quot;Lucro do vendedor é: &quot; + lucroVendedor); </span>
+        
+        
+<span class="nc" id="L56">    }   </span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
