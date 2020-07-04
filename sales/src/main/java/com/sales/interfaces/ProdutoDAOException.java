@@ -2,7 +2,8 @@ package com.sales.interfaces;
 import com.sales.entidades.*;
 import com.sales.casosdeuso.*;
 
-
+import org.springframework.stereotype.Component;
+    @Component
     public class ProdutoDAOException extends Exception {
 
         /**

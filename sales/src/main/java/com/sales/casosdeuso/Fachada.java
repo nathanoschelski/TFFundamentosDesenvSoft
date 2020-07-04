@@ -13,16 +13,31 @@ import org.springframework.stereotype.Service;
 @Service
 public class Fachada {
 
-
     private ProdutoDAO dao;
-    private VendaDAO vendaDao;
+    private VendaDAO daoVenda;
     
+    private ProdutoDAOImpl ProdutoDAOImpl; 
+    private Produto Produto; 
+    private ProdutoDAOException ProdutoDAOException;
+    private VendaDTO VendaDTO; 
+    private CalculoLucroFactory CalculoLucroFactory;
+    private CalculoLucro CalculoLucro;
+    private VendaDAOImpl VendaDAOImpl;    
+
+
     @Autowired
-    public Fachada() {
-    
-    //throws ProdutoDAOException{
+    public Fachada(ProdutoDAOImpl ProdutoDAOImpl, VendaDAOImpl VendaDAOImpl,  Produto Produto, ProdutoDAOException ProdutoDAOException, VendaDTO VendaDTO, CalculoLucroFactory CalculoLucroFactory, CalculoLucro CalculoLucro) {
+
+        this.ProdutoDAOImpl = ProdutoDAOImpl; 
+        this.Produto = Produto; 
+        this.ProdutoDAOException = ProdutoDAOException;
+        this.VendaDTO = VendaDTO; 
+        this.CalculoLucroFactory = CalculoLucroFactory;
+        this.CalculoLucro = CalculoLucro;
+
        try {
             dao = ProdutoDAOImpl.getInstance();
+            daoVenda = VendaDAOImpl.getInstance();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -54,10 +69,12 @@ public class Fachada {
     }
 
     public VendaDTO venderProduto(double margem, Produto produto){
+
+        double salesPrice = (1 + margem) * produto.getTransferPrice();
+        VendaDTO v = new VendaDTO(margem, salesPrice, produto);
+        System.out.println(v.toString()); 
+
         try {
-            double salesPrice = (1 + margem) * produto.getTransferPrice();
-            VendaDTO v = new VendaDTO(margem, salesPrice, produto);
-            System.out.println(v.toString());
             boolean ok = daoVenda.criarVenda(v);
             if(ok) {
                 return v;
@@ -68,7 +85,15 @@ public class Fachada {
            System.out.println("Falha ao adicionar venda!");
         }
         return v;
-    } 
+    }
+    
+    public List<VendaDTO> buscarVendas() throws Exception{
+        try {
+            return daoVenda.getTodos();
+        } catch (Exception e) {
+            throw new Exception("Falha ao buscar vendas!", e);
+        }
+    }
 
     public double calcularLucro(String tipo){
         

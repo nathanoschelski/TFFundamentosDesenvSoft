@@ -2,6 +2,9 @@ package com.sales.casosdeuso;
 import com.sales.entidades.*;
 import com.sales.interfaces.*;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CalculoLucroFactory {
     
     //devolve um CalculoLucro, dependendo do tipo

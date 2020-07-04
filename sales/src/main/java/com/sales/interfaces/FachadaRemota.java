@@ -33,8 +33,12 @@ public class FachadaRemota {
     @CrossOrigin(origins = "*")
     @GetMapping("/buscar_produtos")
     public List<Produto> buscarProdutos(){
-        List<Produto> produtos = sFachada.buscarProdutos();
-        return produtos; 
+        try {
+            List<Produto> produtos = sFachada.buscarProdutos();
+           return produtos; 
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Aluno nao encontrado");
+        }
     }
 
     @CrossOrigin(origins = "*")
