@@ -31,14 +31,14 @@ public class VendaDAOImpl implements VendaDAO {
         }
         
         
-        /*
+        
         try {
             createDB();
         } catch (Exception ex) {
             System.out.println("Problemas para criar o banco: "+ex.getMessage());
-            System.exit(0);
+        //    System.exit(0);
         }
-        */
+        
     }
     
     private static void createDB() throws ProdutoDAOException {
@@ -71,11 +71,14 @@ public class VendaDAOImpl implements VendaDAO {
     @Override
     public boolean criarVenda(VendaDTO v) throws ProdutoDAOException {
         try {
+            System.out.println("AQUI");
             Connection connection = getConnection();
+            System.out.println("ALI");
             
             PreparedStatement stmt2 = connection.prepareStatement(
                     "INSERT INTO Venda (Produto, Margem, SalesPrice) VALUES (?,?,?)"
                     );
+            System.out.println("ACOLA");
             Produto p = v.getProduto();
             System.out.println("VendaDAOImpl>criarVenda>Nome " + p.getNome());
             stmt2.setString(1, p.getNome());
@@ -122,6 +125,8 @@ public class VendaDAOImpl implements VendaDAO {
                 double margem = resultado.getDouble("Margem");
                 double salesPrice = resultado.getDouble("SalesPrice");
                 VendaDTO v = new VendaDTO(margem, salesPrice, p);
+                
+                System.out.println("AQUIIII333 ----" + v.toString());
                 
                 lista.add(v);
             }

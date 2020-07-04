@@ -1,8 +1,10 @@
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/VendaDAOImpl.java
+/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/SalesApplication.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/Fachada.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/entidades/Produto.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/VendaDTO.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/entidades/Vendedor.java
+/Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/FachadaRemota.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/interfaces/App.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/ProdutoDAO.java
 /Users/jbredow/Documents/Priscilla/Fundamentos/Projects/Sales/TFFundamentosDesenvSoft/sales/src/main/java/com/sales/casosdeuso/CalculoLucroFactory.java
