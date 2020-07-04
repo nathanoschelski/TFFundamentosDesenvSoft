@@ -34,6 +34,7 @@ public class Fachada {
         this.VendaDTO = VendaDTO; 
         this.CalculoLucroFactory = CalculoLucroFactory;
         this.CalculoLucro = CalculoLucro;
+        this.VendaDAOImpl = VendaDAOImpl; 
 
        try {
             dao = ProdutoDAOImpl.getInstance();

@@ -6,18 +6,21 @@ import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class ProdutoDAOImpl implements ProdutoDAO {
     private static ProdutoDAOImpl ref;
     
     public static ProdutoDAOImpl getInstance() throws ProdutoDAOException{
-        if (ref == null)
+            if (ref == null)
             ref = new ProdutoDAOImpl();
         return ref;
     }
     
     private ProdutoDAOImpl() {
     //throws ProdutoDAOException{
-       
         
         try {
              Class.forName("org.apache.derby.jdbc.EmbeddedDriver");

@@ -13,6 +13,9 @@ import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class VendaDAOImpl implements VendaDAO {
     private static VendaDAOImpl ref;
     
