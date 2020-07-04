@@ -30,5 +30,12 @@ public class FachadaRemota {
         List<Produto> produtos = fachada.buscarProdutos();
         return produtos; 
     }
-}
 
+    @CrossOrigin(origins = "*")
+    @GetMapping("/calcula_lucro")
+    public List<Produto> calculaLucro(@RequestParam String tipo){
+        double lucro; 
+        lucro = fachada.calculaLucro(tipo);
+        return lucro; 
+    } 
+}
